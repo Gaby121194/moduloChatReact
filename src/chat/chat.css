@@ -1,0 +1,19 @@
+.textSender {
+    text-align: right;
+}
+
+.profilePhoto {
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+    display:block;
+    margin:auto;
+}
+
+.profileName {
+    text-align: center;
+}
+
+.negrita {
+    font-weight: 300;
+}

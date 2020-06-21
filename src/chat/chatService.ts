@@ -4,7 +4,8 @@ import { User } from "../user/userService"
 
 export interface Chat {
     id: number;
-    user: string;
+    user1: string;
+    user2: string;
     messages: Array<Message>;
     
 }
@@ -13,7 +14,9 @@ export interface Message {
     id: number;
     text: string;
     dateSend: Number;
+    sender: string;
     receptor: string;
+    nameSender: string;
 
 }
 

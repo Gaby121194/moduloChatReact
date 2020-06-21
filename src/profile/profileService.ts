@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios"
 import { environment } from "../app/environment/environment"
 import { logout } from "../user/userService"
 
-interface Profile {
+export interface  Profile {
     name: string;
     phone: string;
     email: string;
@@ -59,6 +59,21 @@ export async function getCurrentProfile(): Promise<Profile> {
         return Promise.reject(err)
     }
 }
+
+export async function getUserProfile(userId: string): Promise<Profile> {
+    try {
+        const res = (await axios.get(environment.backendUrl + "/v1/profile/" + userId)).data as Profile
+        return Promise.resolve(res)
+    } catch (err) {
+        const axiosError = err as AxiosError
+        if (axiosError.response && axiosError.response.status === 401) {
+            void logout()
+        }
+        return Promise.reject(err)
+    }
+}
+
+
 
 export function getPictureUrl(id: string) {
     if (id && id.length > 0) {

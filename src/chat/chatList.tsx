@@ -35,7 +35,7 @@ export default function ChatList() {
     return (
         
             <div className="list-group">
-                
+                <h2>ChatRoom</h2>
                 {chatlist.map(user=> {
                         return <NavLink to="/chat" className="list-group-item list-group-item-action" key={user.id} onClick={()=>updateUsuario(user)}>{user.name}</NavLink>
                     }

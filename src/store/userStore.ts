@@ -1,6 +1,7 @@
 import { Subject } from "rxjs"
 import { User } from "../user/userService"
 import { useState, useLayoutEffect } from "react"
+import { unstable_renderSubtreeIntoContainer } from "react-dom"
 
 let currentUser: User | undefined
 
@@ -23,16 +24,7 @@ export function updateSessionUser(user: User) {
   userSubject.next(currentUser)
 }
 
-export function updateReceptor(user: User) {
-  currentUser =  user
-  userSubject.next(currentUser)
-  console.log(user)
-}
 
-export function sendReceptor () {
-  userSubject.subscribe((user) => {return user.id})
-  
-}
 
 
 export function cleanupSessionUser() {
